@@ -1,0 +1,52 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/library_db
+    username: postgres
+    password: postgres
+  application:
+    name: service
+
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:database/data.sql
+
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+
+  security:
+    user:
+      name: admin
+      password: password
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type.descriptor.sql.BasicBinder: TRACE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+
+server:
+  port: 0
+
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: true
+
+delay:
+  getOne: 1500
+  getAll: 3000
+  delete: 1500
+  update: 1500
+  insert: 500
