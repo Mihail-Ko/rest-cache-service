@@ -40,24 +40,15 @@ java -jar api-gateway\target\api-gateway-0.0.1-SNAPSHOT.jar --server.address=127
 #### Начальное заполнение БД
 Тестовые данные для БД: [database/data.sql](rest-service/src/main/resources/database/data.sql)
 
-Настройки инициализации БД тестовыми данными в [application.yml](rest-service/src/main/resources/application.yml) (после инициализации удалить параметры)
-```yaml
-spring:
-  sql:
-    init:
-      mode: always
-      data-locations: classpath:database/data.sql
-```
-
 ### Swagger интерфейс
 http://127.0.0.1/swagger-ui/index.html
 <p align=center>
-    <img width= 80% src= />
+    <img width= 80% src=https://github.com/Mihail-Ko/rest-cache-service/assets/98303471/9cc348a1-6f4b-468e-89d8-ff9d43619351 alt="swagger screenshot"/>
 </p>
 
 ### Микросервисы и горизонтальное масштабирование
 - #### api-gateway
-Прокси между пользователем и запущенными сервисами: http://localhost
+Прокси между пользователем и запущенными сервисами: http://localhost/
 - #### discovery-service
 Регистрация микросервисов.
 
@@ -65,7 +56,7 @@ http://127.0.0.1/swagger-ui/index.html
 - #### rest-service
 Для реализации горизонтального масштабирования необходимо запустить несколько экземпляров.
 <p align=center>
-    <img width=500px src= />
+    <img width=500px src=https://github.com/Mihail-Ko/rest-cache-service/assets/98303471/58362c31-b73c-4b1d-935f-6f80e92394fd alt="services scheme"/>
 </p>
 <p align=center> Схема микросервисов </p>
 
@@ -87,6 +78,6 @@ delay:
 ### Кэширование
 В [hazelcast.yml](rest-service/src/main/resources/hazelcast.yml) включена синхронизация и установлено время жизни кэша.
 <p align=center>
-    <img src= />
+    <img src=https://github.com/Mihail-Ko/rest-cache-service/assets/98303471/50bfde3e-0f26-4835-b569-a463ab223319 alt="hazelcast scheme"/>
 </p>
 <p align=center> Hazelcast синхронизация </p>
